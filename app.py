@@ -39,6 +39,6 @@ if st.button("Generate Poem"):
     try:
         chat = model.start_chat()
         response = chat.send_message(prompt)
-        st.write(response.text)
+        st.code(response.text, line_numbers=False)
     except InternalServerError:
         st.write("An error occurred. Please try again.")
