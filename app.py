@@ -34,9 +34,13 @@ tone_options = [
     "Serene",
 ]
 tone = st.selectbox("Select the tone or mood of the poem:", options=tone_options)
+if tone == "Other":
+    tone = st.text_input("Enter the tone or mood of the poem: ")
 
 style_options = ["Free Verse", "Sonnet", "Haiku", "Other"]
 style = st.radio("Style or form:", style_options)
+if style == "Other":
+    style = st.text_input("Enter the style or form of the poem: ")
 
 prompt = f"Write a {style} poem titled {title} in approximately {num_lines} lines in {style} style or form"
 
