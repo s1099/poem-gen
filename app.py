@@ -27,6 +27,11 @@ tone_options = [
     "Melancholic",
     "Joyful",
     "Other",
+    "Inspirational",
+    "Mysterious",
+    "Empowering",
+    "Hopeful",
+    "Serene",
 ]
 tone = st.selectbox("Select the tone or mood of the poem:", options=tone_options)
 
