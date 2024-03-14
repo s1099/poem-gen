@@ -1,5 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
+from google.api_core.exceptions import InternalServerError
 from dotenv import load_dotenv
 import os
 
@@ -35,6 +36,9 @@ style = st.radio("Style or form:", style_options)
 prompt = f"Write a {style} poem titled {title} in approximately {num_lines} lines in {style} style or form"
 
 if st.button("Generate Poem"):
-    chat = model.start_chat()
-    response = chat.send_message(prompt)
-    st.write(response.text)
+    try:
+        chat = model.start_chat()
+        response = chat.send_message(prompt)
+        st.write(response.text)
+    except InternalServerError:
+        st.write("An error occurred. Please try again.")
