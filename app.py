@@ -32,8 +32,11 @@ tone_options = [
     "Empowering",
     "Hopeful",
     "Serene",
+    "Other",
 ]
-tone = st.sidebar.selectbox("Select the tone or mood of the poem:", options=tone_options)
+tone = st.sidebar.selectbox(
+    "Select the tone or mood of the poem:", options=tone_options
+)
 if tone == "Other":
     tone = st.sidebar.text_input("Enter the tone or mood of the poem: ")
 
